@@ -3,7 +3,9 @@
     <notes>
         NOTE: This profile REQUIRES daVinci software release 8.0 or higher. Any software version below 8.0 will not control this device. 
         In order to use the RGB Slider entity you must be running release 5.2.3 or higher - Please note the RGB slider is currently untested and may not work.
-
+        
+        You MUST use the ssh login credentials in the follwing format > 'RPM:RPM@127.0.0.1' in the IP address field on the wire.
+        
         To initially sync the hub with our system:
         - You must first press the Link button on the Hue Hub, and then send the RegisterDevice command from Savant (this is a custom workflow you need to create).
         - Once registration is complete and control is confirmed please search for UserName in "System State"
