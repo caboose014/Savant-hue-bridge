@@ -1046,7 +1046,7 @@
                             <parameter parameter_data_type="character">/lights/</parameter>
                             <parameter parameter_data_type="character" action_argument="LightNumber"/>
                             <parameter parameter_data_type="character">/state</parameter>
-                            <parameter parameter_data_type="character"> -b&apos;{&quot;alert&quot;: &quot;select&quot;}&apos;</parameter>
+                            <parameter parameter_data_type="character"> -b &apos;{&quot;alert&quot;: &quot;select&quot;}&apos;</parameter>
                         </parameter_list>
                         <delay ms_delay="50"/>
                     </command>
@@ -1067,7 +1067,7 @@
                             <parameter parameter_data_type="character">/groups/</parameter>
                             <parameter parameter_data_type="character" action_argument="GroupNumber"/>
                             <parameter parameter_data_type="character">/action</parameter>
-                            <parameter parameter_data_type="character"> -b&apos;{&quot;alert&quot;: &quot;select&quot;}&apos;</parameter>
+                            <parameter parameter_data_type="character"> -b &apos;{&quot;alert&quot;: &quot;select&quot;}&apos;</parameter>
                         </parameter_list>
                         <delay ms_delay="50"/>
                     </command>
