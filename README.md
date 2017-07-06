@@ -1,6 +1,7 @@
 # Savant-hue-bridge
 A bridge script for Savant to communicate with Philips Hue
 
+## Please note that this profile is currently only compatiable with the Pro Host, as there is an issue running this on a Smart host
 
 NOTE: This profile REQUIRES daVinci software release 8.0 or higher. Any software version below 8.0 will not control this device. 
 In order to use the RGB Slider entity you must be running release 5.2.3 or higher - Please note the RGB slider is currently untested and may not work.
