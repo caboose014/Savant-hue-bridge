@@ -48,7 +48,12 @@ if args.body:
             print json.dumps(result)
         sleep(1)
     else:
-        request = urllib2.Request(full_url, json.dumps(json.loads(args.body)))
+        body = json.loads(args.body)
+        if "bri" in body:
+            if body['bri'] < 1:
+                body['on'] = False
+                body.pop('bri', None)
+        request = urllib2.Request(full_url, json.dumps(body))
         request.get_method = lambda: 'PUT'
         print urllib2.urlopen(request).read()
 else:
@@ -56,6 +61,10 @@ else:
     if args.url.endswith('lights'):
         for load in returndata:
             try:
+                if not returndata[load]['state']['on']:
+                    returndata[load]['state']['bri'] = 0
+                    returndata[load]['state']['hue'] = 0
+                    returndata[load]['state']['sat'] = 0
                 print json.dumps({"light": {"num": load, "info": returndata[load]}})
                 sleep(0.01)
             except KeyError:
@@ -64,6 +73,10 @@ else:
         for load in returndata:
             try:
                 if returndata[load]["type"] == "Room":
+                    if not returndata[load]['action']['on']:
+                        returndata[load]['action']['bri'] = 0
+                        returndata[load]['action']['hue'] = 0
+                        returndata[load]['action']['sat'] = 0
                     print json.dumps({"group": {"num": load, "info": returndata[load]}})
                     sleep(0.01)
             except KeyError:
@@ -76,7 +89,7 @@ else:
                     sleep(0.01)
             except KeyError:
                 pass
-    elif args.url.endswith('scenes'):
+    elif args.url.endswith('sensors'):
         for load in returndata:
             try:
                 if returndata[load]["modelid"] == "SML001":
@@ -87,6 +100,10 @@ else:
     else:
         try:
             for load in returndata["lights"]:
+                if not returndata["lights"][load]['state']['on']:
+                    returndata["lights"][load]['state']['bri'] = 0
+                    returndata["lights"][load]['state']['hue'] = 0
+                    returndata["lights"][load]['state']['sat'] = 0
                 print json.dumps({"light": {"num": load, "info": returndata["lights"][load]}})
                 sleep(0.01)
         except KeyError:
@@ -94,6 +111,10 @@ else:
         try:
             for load in returndata["groups"]:
                 if returndata["groups"][load]["type"] == "Room":
+                    if not returndata["groups"][load]['action']['on']:
+                        returndata["groups"][load]['action']['bri'] = 0
+                        returndata["groups"][load]['action']['hue'] = 0
+                        returndata["groups"][load]['action']['sat'] = 0
                     print json.dumps({"group": {"num": load, "info": returndata["groups"][load]}})
                     sleep(0.01)
         except KeyError:
@@ -113,3 +134,4 @@ else:
                     sleep(0.01)
         except KeyError:
             pass
+
