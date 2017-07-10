@@ -563,7 +563,7 @@
                             <parameter parameter_data_type="character" state_variable="user_name"/>
                             <parameter parameter_data_type="character">/groups/0/action</parameter>
                             <parameter parameter_data_type="character"> -b &apos;{&quot;scene&quot;: &quot;</parameter>
-                            <parameter parameter_data_type="character" state_variable="Address1"/>
+                            <parameter parameter_data_type="character" action_argument="Address1"/>
                             <parameter parameter_data_type="character">&quot;}&apos;</parameter>
                         </parameter_list>
                         <delay ms_delay="50"/>
